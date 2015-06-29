@@ -3015,9 +3015,9 @@ let a = (1:1000...),
     @test (a === b) === true
 end
 
-module TestCostStructCreate
+module TestRecursiveConstGlobalStructCtor
 const x = (1,2)
 const y = (x,(3,4))
 f() = (x,y,(5,6))
-@test f() == ((1,2),((1,2),(3,4)),(5,6))
 end
+@test TestRecursiveConstGlobalStructCtor.f() == ((1,2),((1,2),(3,4)),(5,6))
