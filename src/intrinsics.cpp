@@ -428,7 +428,7 @@ static jl_cgval_t generic_box(jl_value_t *targ, jl_value_t *x, jl_codectx_t *ctx
     Value *vx;
     if (v.ispointer) {
         // TODO: validate the size and type of the pointer contents
-        if (v.isimmutable) { // wrong type, but can lazy load this later as needed
+        if (v.isimmutable && !v.needsgcroot) { // wrong type, but can lazy load this later as needed
             v.typ = bt;
             v.isboxed = false;
             return v;
