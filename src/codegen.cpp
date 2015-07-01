@@ -2123,6 +2123,7 @@ static Value *emit_bits_compare(const jl_cgval_t &arg1, const jl_cgval_t &arg2, 
         }
     }
     assert(0 && "what is this llvm type?");
+    return 0;
 }
 
 // emit code for is (===).
